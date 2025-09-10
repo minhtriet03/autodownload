@@ -10465,3 +10465,113 @@ NameError: name 'total_tabs' is not defined
 2025-09-10 19:27:39,706 - INFO - 📂 Xử lý tab 3/3: MCC Account 3
 2025-09-10 19:27:39,707 - INFO -    Ctrl+Tab sang tab kế tiếp
 2025-09-10 19:27:40,685 - INFO - ⚠️ Đã dừng bởi người dùng
+2025-09-10 19:47:00,658 - INFO - ✅ Đã load config từ mouse_clicker_config.json
+2025-09-10 19:47:00,660 - INFO - ✅ Đã load config từ mouse_clicker_config.json
+2025-09-10 19:47:02,744 - INFO - 🚀 Bắt đầu chạy ngầm xuất file
+2025-09-10 19:47:02,744 - INFO - ⏰ Đã lập lịch xuất file mỗi 10 giây
+2025-09-10 19:47:02,744 - INFO - 🔄 Bắt đầu chu kỳ download
+2025-09-10 19:47:02,744 - INFO - 🔍 Debug thông tin tab:
+2025-09-10 19:47:02,744 - INFO -    Số tab trong config: 3
+2025-09-10 19:47:02,745 - INFO -    Tab 0: MCC Account 1
+2025-09-10 19:47:02,745 - INFO -    Tab 1: MCC Account 2
+2025-09-10 19:47:02,745 - INFO -    Tab 2: MCC Account 3
+2025-09-10 19:47:02,745 - INFO - ⏳ Chờ Chrome sẵn sàng...
+2025-09-10 19:47:05,745 - INFO - 📊 Sẽ xử lý 3/3 tab trong chu kỳ này
+2025-09-10 19:47:05,746 - INFO - 📂 Xử lý tab 1/3: MCC Account 1
+2025-09-10 19:47:05,746 - INFO - ⏳ Chờ 1 giây để trang ổn định...
+2025-09-10 19:47:06,747 - INFO - 🚀 Bắt đầu thực hiện flow cho MCC Account 1
+2025-09-10 19:47:06,748 - INFO - 🚀 Bắt đầu xuất file cho MCC Account 1
+2025-09-10 19:47:06,749 - INFO - ⏳ Chờ trang ổn định...
+2025-09-10 19:47:09,840 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 1_before_export_20250910_194709.png
+2025-09-10 19:47:09,841 - INFO - 🔄 Refresh (image only)...
+2025-09-10 19:47:10,427 - INFO - 🔎 Refresh (template): max confidence = 1.000 (template: templates/refresh_new.png)
+2025-09-10 19:47:10,427 - INFO - ✅ Tìm thấy Refresh (template) tại (1487,118)
+2025-09-10 19:47:10,427 - INFO - 🖱️ Đang click Refresh (template) tại (1487, 118)
+2025-09-10 19:47:23,427 - INFO - ✅ Đã click Refresh (template)
+2025-09-10 19:47:23,522 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 1_after_refresh_click_20250910_194723.png
+2025-09-10 19:47:23,523 - INFO - ⏳ Chờ 1 giây sau Refresh...
+2025-09-10 19:47:24,524 - INFO - ⬇️ Download (image only)...
+2025-09-10 19:47:25,107 - INFO - 🔎 Download (template): max confidence = 1.000 (template: templates/download_new.png)
+2025-09-10 19:47:25,108 - INFO - ✅ Tìm thấy Download (template) tại (1678,726)
+2025-09-10 19:47:25,108 - INFO - 🖱️ Đang click Download (template) tại (1678, 726)
+2025-09-10 19:47:38,130 - INFO - ✅ Đã click Download (template)
+2025-09-10 19:47:38,215 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 1_after_download_click_20250910_194738.png
+2025-09-10 19:47:38,216 - INFO - ⏳ Chờ combobox hiển thị...
+2025-09-10 19:47:40,216 - INFO - 📄 Chọn .csv (image only)...
+2025-09-10 19:47:40,826 - INFO - 🔎 CSV option (template): max confidence = 0.960 (template: templates/csv_option.png)
+2025-09-10 19:47:40,827 - INFO - ✅ Tìm thấy CSV option (template) tại (1577,549)
+2025-09-10 19:47:40,827 - INFO - 🖱️ Đang click CSV option (template) tại (1577, 549)
+2025-09-10 19:47:53,916 - INFO - ✅ Đã click CSV option (template)
+2025-09-10 19:47:53,995 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 1_after_combobox_selection_20250910_194753.png
+2025-09-10 19:47:53,996 - INFO - 🖱️ Click thêm 1 lần nữa vào .csv để xác nhận/đóng menu (image only)
+2025-09-10 19:47:55,091 - INFO - 🔎 CSV option (extra): max confidence = 0.587 (template: templates/csv_option.png)
+2025-09-10 19:47:55,091 - INFO - ❌ Không tìm thấy CSV option (extra) bằng template với ngưỡng 0.8
+2025-09-10 19:47:55,093 - INFO - ⏳ Chờ 1 giây để download hoàn tất cho MCC Account 1...
+2025-09-10 19:47:56,159 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 1_download_completed_20250910_194756.png
+2025-09-10 19:47:56,160 - INFO - ✅ Hoàn thành download cho MCC Account 1
+2025-09-10 19:47:56,160 - INFO - ⏳ Delay ngắn giữa các tab...
+2025-09-10 19:47:57,289 - INFO - 📂 Xử lý tab 2/3: MCC Account 2
+2025-09-10 19:47:57,290 - INFO -    Ctrl+Tab sang tab kế tiếp
+2025-09-10 19:47:58,803 - INFO - ⏳ Chờ 1 giây để trang ổn định...
+2025-09-10 19:47:59,805 - INFO - 🚀 Bắt đầu thực hiện flow cho MCC Account 2
+2025-09-10 19:47:59,805 - INFO - 🚀 Bắt đầu xuất file cho MCC Account 2
+2025-09-10 19:47:59,805 - INFO - ⏳ Chờ trang ổn định...
+2025-09-10 19:48:02,882 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 2_before_export_20250910_194802.png
+2025-09-10 19:48:02,883 - INFO - 🔄 Refresh (image only)...
+2025-09-10 19:48:03,485 - INFO - 🔎 Refresh (template): max confidence = 0.589 (template: templates/refresh_new.png)
+2025-09-10 19:48:03,486 - INFO - ❌ Không tìm thấy Refresh (template) bằng template với ngưỡng 0.8
+2025-09-10 19:48:03,487 - ERROR - ❌ Không tìm thấy nút Refresh bằng hình ảnh
+2025-09-10 19:48:03,488 - INFO - ⏳ Delay ngắn giữa các tab...
+2025-09-10 19:48:04,417 - INFO - 📂 Xử lý tab 3/3: MCC Account 3
+2025-09-10 19:48:04,417 - INFO -    Ctrl+Tab sang tab kế tiếp
+2025-09-10 19:48:05,921 - INFO - ⏳ Chờ 1 giây để trang ổn định...
+2025-09-10 19:48:06,923 - INFO - 🚀 Bắt đầu thực hiện flow cho MCC Account 3
+2025-09-10 19:48:06,924 - INFO - 🚀 Bắt đầu xuất file cho MCC Account 3
+2025-09-10 19:48:06,925 - INFO - ⏳ Chờ trang ổn định...
+2025-09-10 19:48:10,017 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 3_before_export_20250910_194809.png
+2025-09-10 19:48:10,018 - INFO - 🔄 Refresh (image only)...
+2025-09-10 19:48:10,603 - INFO - 🔎 Refresh (template): max confidence = 1.000 (template: templates/refresh_new.png)
+2025-09-10 19:48:10,603 - INFO - ✅ Tìm thấy Refresh (template) tại (1487,118)
+2025-09-10 19:48:10,604 - INFO - 🖱️ Đang click Refresh (template) tại (1487, 118)
+2025-09-10 19:48:24,380 - INFO - ✅ Đã click Refresh (template)
+2025-09-10 19:48:24,468 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 3_after_refresh_click_20250910_194824.png
+2025-09-10 19:48:24,469 - INFO - ⏳ Chờ 1 giây sau Refresh...
+2025-09-10 19:48:25,470 - INFO - ⬇️ Download (image only)...
+2025-09-10 19:48:26,051 - INFO - 🔎 Download (template): max confidence = 1.000 (template: templates/download_new.png)
+2025-09-10 19:48:26,051 - INFO - ✅ Tìm thấy Download (template) tại (1678,726)
+2025-09-10 19:48:26,051 - INFO - 🖱️ Đang click Download (template) tại (1678, 726)
+2025-09-10 19:48:39,835 - INFO - ✅ Đã click Download (template)
+2025-09-10 19:48:39,932 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 3_after_download_click_20250910_194839.png
+2025-09-10 19:48:39,933 - INFO - ⏳ Chờ combobox hiển thị...
+2025-09-10 19:48:41,933 - INFO - 📄 Chọn .csv (image only)...
+2025-09-10 19:48:42,535 - INFO - 🔎 CSV option (template): max confidence = 0.584 (template: templates/csv_option.png)
+2025-09-10 19:48:42,535 - INFO - ❌ Không tìm thấy CSV option (template) bằng template với ngưỡng 0.8
+2025-09-10 19:48:42,537 - ERROR - ❌ Không tìm thấy mục .csv trong combobox bằng hình ảnh cho MCC Account 3
+2025-09-10 19:48:42,537 - INFO - ➡️ Đã ở tab cuối cùng trong chu kỳ, Ctrl+Tab thêm 1 lần nữa
+2025-09-10 19:48:44,042 - INFO - ✅ Hoàn thành chu kỳ download
+2025-09-10 19:48:44,043 - INFO - 🔄 Bắt đầu chu kỳ download
+2025-09-10 19:48:44,044 - INFO - 🔍 Debug thông tin tab:
+2025-09-10 19:48:44,044 - INFO -    Số tab trong config: 3
+2025-09-10 19:48:44,045 - INFO -    Tab 0: MCC Account 1
+2025-09-10 19:48:44,046 - INFO -    Tab 1: MCC Account 2
+2025-09-10 19:48:44,047 - INFO -    Tab 2: MCC Account 3
+2025-09-10 19:48:44,048 - INFO - ⏳ Chờ Chrome sẵn sàng...
+2025-09-10 19:48:47,049 - INFO - 📊 Sẽ xử lý 3/3 tab trong chu kỳ này
+2025-09-10 19:48:47,050 - INFO - 📂 Xử lý tab 1/3: MCC Account 1
+2025-09-10 19:48:47,050 - INFO - ⏳ Chờ 1 giây để trang ổn định...
+2025-09-10 19:48:48,051 - INFO - 🚀 Bắt đầu thực hiện flow cho MCC Account 1
+2025-09-10 19:48:48,051 - INFO - 🚀 Bắt đầu xuất file cho MCC Account 1
+2025-09-10 19:48:48,051 - INFO - ⏳ Chờ trang ổn định...
+2025-09-10 19:48:51,139 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 1_before_export_20250910_194851.png
+2025-09-10 19:48:51,140 - INFO - 🔄 Refresh (image only)...
+2025-09-10 19:48:51,691 - INFO - 🔎 Refresh (template): max confidence = 0.415 (template: templates/refresh_new.png)
+2025-09-10 19:48:51,691 - INFO - ❌ Không tìm thấy Refresh (template) bằng template với ngưỡng 0.8
+2025-09-10 19:48:51,693 - ERROR - ❌ Không tìm thấy nút Refresh bằng hình ảnh
+2025-09-10 19:48:51,693 - INFO - ⏳ Delay ngắn giữa các tab...
+2025-09-10 19:48:52,674 - INFO - 📂 Xử lý tab 2/3: MCC Account 2
+2025-09-10 19:48:52,674 - INFO -    Ctrl+Tab sang tab kế tiếp
+2025-09-10 19:48:54,178 - INFO - ⏳ Chờ 1 giây để trang ổn định...
+2025-09-10 19:48:55,179 - INFO - 🚀 Bắt đầu thực hiện flow cho MCC Account 2
+2025-09-10 19:48:55,180 - INFO - 🚀 Bắt đầu xuất file cho MCC Account 2
+2025-09-10 19:48:55,181 - INFO - ⏳ Chờ trang ổn định...
+2025-09-10 19:48:56,119 - INFO - ⚠️ Đã dừng bởi người dùng

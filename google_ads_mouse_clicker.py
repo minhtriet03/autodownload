@@ -64,8 +64,8 @@ class GoogleAdsMouseClicker:
                 "description": "Nút Refresh"
             },
             "download_button": {
-                "x": 1680,
-                "y": 728,
+                # "x": 1680,
+                # "y": 728,
                 "description": "Nút Download"
             },
             "combobox_option": {
@@ -228,7 +228,7 @@ class GoogleAdsMouseClicker:
             return None
 
     def locate_and_click(self, template_keys: List[str], confidence: float = 0.85, description: str = "") -> bool:
-        """Tìm nút bằng template images (UI cũ/mới) và click. Trả về True nếu thành công."""
+        """Tìm nút bằng template images (UI cũ/mới) theo đa tỉ lệ và click. Trả về True nếu thành công."""
         try:
             templates_cfg = self.config.get("templates", {})
             paths: List[str] = []
@@ -239,24 +239,45 @@ class GoogleAdsMouseClicker:
                 elif isinstance(vals, str):
                     paths.append(vals)
 
+            # Chuẩn bị ảnh màn hình xám một lần
+            screen = pyautogui.screenshot()
+            screen_np = cv2.cvtColor(np.array(screen), cv2.COLOR_RGB2BGR)
+            screen_gray = cv2.cvtColor(screen_np, cv2.COLOR_BGR2GRAY)
+
+            best = {"conf": 0.0, "center": None, "path": None}
+            # Thử lần lượt từng template và nhiều tỉ lệ
             for path in paths:
                 if not os.path.exists(path):
                     continue
-                self.logger.info(f"🔎 Tìm {description or template_keys} bằng template: {path}")
-                screen = pyautogui.screenshot()
-                screen_np = cv2.cvtColor(np.array(screen), cv2.COLOR_RGB2BGR)
                 tpl = cv2.imread(path, cv2.IMREAD_COLOR)
                 if tpl is None:
                     continue
-                res = cv2.matchTemplate(screen_np, tpl, cv2.TM_CCOEFF_NORMED)
-                min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
-                if max_val >= confidence:
-                    h, w = tpl.shape[:2]
-                    center_x = max_loc[0] + w // 2
-                    center_y = max_loc[1] + h // 2
-                    self.logger.info(f"✅ Tìm thấy {description or template_keys} (conf={max_val:.2f}) tại ({center_x},{center_y})")
-                    return self.human_like_click(center_x, center_y, description or ",".join(template_keys))
-            self.logger.info(f"❌ Không tìm thấy {description or template_keys} bằng template")
+                tpl_gray = cv2.cvtColor(tpl, cv2.COLOR_BGR2GRAY)
+
+                # Multi-scale around 75%..130%
+                for scale in np.linspace(0.75, 1.30, 12):
+                    h0, w0 = tpl_gray.shape[:2]
+                    h = int(h0 * scale)
+                    w = int(w0 * scale)
+                    if h < 10 or w < 10:
+                        continue
+                    if h >= screen_gray.shape[0] or w >= screen_gray.shape[1]:
+                        continue
+                    tpl_resized = cv2.resize(tpl_gray, (w, h), interpolation=cv2.INTER_AREA)
+                    res = cv2.matchTemplate(screen_gray, tpl_resized, cv2.TM_CCOEFF_NORMED)
+                    min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
+                    if max_val > best["conf"]:
+                        best["conf"] = max_val
+                        best["center"] = (max_loc[0] + w // 2, max_loc[1] + h // 2)
+                        best["path"] = path
+
+            self.logger.info(f"🔎 {description or template_keys}: max confidence = {best['conf']:.3f} (template: {best['path']})")
+            if best["conf"] >= confidence and best["center"] is not None:
+                cx, cy = best["center"]
+                self.logger.info(f"✅ Tìm thấy {description or template_keys} tại ({cx},{cy})")
+                return self.human_like_click(cx, cy, description or ",".join(template_keys))
+
+            self.logger.info(f"❌ Không tìm thấy {description or template_keys} bằng template với ngưỡng {confidence}")
             return False
         except Exception as e:
             self.logger.error(f"❌ Lỗi locate_and_click: {e}")
@@ -289,7 +310,8 @@ class GoogleAdsMouseClicker:
             
             # Bước 2: Click nút Download (CHỈ dùng template)
             self.logger.info("⬇️ Download (image only)...")
-            clicked_download = self.locate_and_click(["download_button"], confidence=0.8, description="Download (template)")
+            # Hạ ngưỡng nhận diện dành riêng cho Download để tăng độ bền khi giao diện thay đổi
+            clicked_download = self.locate_and_click(["download_button"], confidence=0.70, description="Download (template)")
             if not clicked_download:
                 self.logger.error(f"❌ Không tìm thấy nút Download bằng hình ảnh cho {tab_name}")
                 return False
