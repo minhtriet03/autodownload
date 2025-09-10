@@ -1,0 +1,44 @@
+{
+    "tab_names": [
+        "MCC Account 1",
+        "MCC Account 2",
+        "MCC Account 3"
+    ],
+    "click_positions": {
+        "refresh_button": {
+            "x": 1500,
+            "y": 118,
+            "description": "Nút Refresh"
+        },
+        "download_button": {
+            "x": 1680,
+            "y": 728,
+            "description": "Nút Download"
+        },
+        "combobox_option": {
+            "x": 1553,
+            "y": 554,
+            "description": "Tùy chọn trong combobox"
+        }
+    },
+    "timing": {
+        "export_interval_seconds": 10,
+        "export_interval_minutes": 5,
+        "click_delay": 1,
+        "tab_switch_delay": 1,
+        "export_process_wait": 1,
+        "page_load_wait": 1,
+        "tabs_per_cycle": 3
+    },
+    "mouse_settings": {
+        "click_duration": 0.1,
+        "move_duration": 0.5,
+        "human_like": true
+    },
+    "export_settings": {
+        "max_retries": 3,
+        "retry_delay": 5,
+        "save_screenshots": true,
+        "screenshot_dir": "screenshots"
+    }
+}
