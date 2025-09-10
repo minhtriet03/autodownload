@@ -10129,3 +10129,157 @@ NameError: name 'total_tabs' is not defined
 2025-09-10 17:56:41,500 - WARNING - ⚠️ Không thể Ctrl+Tab sau tab cuối: PyAutoGUI fail-safe triggered from mouse moving to a corner of the screen. To disable this fail-safe, set pyautogui.FAILSAFE to False. DISABLING FAIL-SAFE IS NOT RECOMMENDED.
 2025-09-10 17:56:41,500 - INFO - ✅ Hoàn thành chu kỳ download
 2025-09-10 17:56:45,241 - INFO - ⚠️ Đã dừng bởi người dùng
+2025-09-10 18:51:55,405 - INFO - ✅ Đã load config từ mouse_clicker_config.json
+2025-09-10 18:51:55,407 - INFO - ✅ Đã load config từ mouse_clicker_config.json
+2025-09-10 18:51:57,335 - INFO - 🚀 Bắt đầu chạy ngầm xuất file
+2025-09-10 18:51:57,335 - INFO - ⏰ Đã lập lịch xuất file mỗi 10 giây
+2025-09-10 18:51:57,335 - INFO - 🔄 Bắt đầu chu kỳ download
+2025-09-10 18:51:57,335 - INFO - 🔍 Debug thông tin tab:
+2025-09-10 18:51:57,335 - INFO -    Số tab trong config: 3
+2025-09-10 18:51:57,336 - INFO -    Tab 0: MCC Account 1
+2025-09-10 18:51:57,336 - INFO -    Tab 1: MCC Account 2
+2025-09-10 18:51:57,336 - INFO -    Tab 2: MCC Account 3
+2025-09-10 18:51:57,336 - INFO - ⏳ Chờ Chrome sẵn sàng...
+2025-09-10 18:52:00,337 - INFO - 📊 Sẽ xử lý 3/3 tab trong chu kỳ này
+2025-09-10 18:52:00,338 - INFO - 📂 Xử lý tab 1/3: MCC Account 1
+2025-09-10 18:52:00,338 - INFO - ⏳ Chờ 1 giây để trang ổn định...
+2025-09-10 18:52:01,338 - INFO - 🚀 Bắt đầu thực hiện flow cho MCC Account 1
+2025-09-10 18:52:01,339 - INFO - 🚀 Bắt đầu xuất file cho MCC Account 1
+2025-09-10 18:52:01,339 - INFO - ⏳ Chờ trang ổn định...
+2025-09-10 18:52:04,436 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 1_before_export_20250910_185204.png
+2025-09-10 18:52:04,436 - INFO - 🔄 Refresh...
+2025-09-10 18:52:04,437 - INFO - ❌ Không tìm thấy Refresh (template) bằng template
+2025-09-10 18:52:04,437 - INFO - 🖱️ Đang click Refresh button tại (1500, 118)
+2025-09-10 18:52:17,643 - INFO - ✅ Đã click Refresh button
+2025-09-10 18:52:17,716 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 1_after_refresh_click_20250910_185217.png
+2025-09-10 18:52:17,717 - INFO - ⏳ Chờ 1 giây sau Refresh...
+2025-09-10 18:52:18,717 - INFO - ⬇️ Download...
+2025-09-10 18:52:18,718 - INFO - ❌ Không tìm thấy Download (template) bằng template
+2025-09-10 18:52:18,719 - INFO - 🖱️ Đang click Download button tại (1680, 728)
+2025-09-10 18:52:32,162 - INFO - ✅ Đã click Download button
+2025-09-10 18:52:32,251 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 1_after_download_click_20250910_185232.png
+2025-09-10 18:52:32,252 - INFO - ⏳ Chờ combobox hiển thị...
+2025-09-10 18:52:34,252 - INFO - 📄 Chọn định dạng .csv trong combobox...
+2025-09-10 18:52:34,253 - INFO - ❌ Không tìm thấy CSV option (template) bằng template
+2025-09-10 18:52:34,253 - INFO - 🖱️ Đang click Combobox option (.csv) tại (1553, 554)
+2025-09-10 18:52:47,298 - INFO - ✅ Đã click Combobox option (.csv)
+2025-09-10 18:52:47,388 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 1_after_combobox_selection_20250910_185247.png
+2025-09-10 18:52:47,389 - INFO - 🖱️ Click thêm một lần nữa vào vị trí combobox để xác nhận/đóng menu
+2025-09-10 18:52:47,890 - INFO - 🖱️ Đang click Combobox extra click tại (1553, 554)
+2025-09-10 18:53:00,880 - INFO - ✅ Đã click Combobox extra click
+2025-09-10 18:53:00,881 - INFO - ⏳ Chờ 1 giây để download hoàn tất cho MCC Account 1...
+2025-09-10 18:53:01,964 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 1_download_completed_20250910_185301.png
+2025-09-10 18:53:01,965 - INFO - ✅ Hoàn thành download cho MCC Account 1
+2025-09-10 18:53:01,965 - INFO - ⏳ Delay ngắn giữa các tab...
+2025-09-10 18:53:02,952 - INFO - 📂 Xử lý tab 2/3: MCC Account 2
+2025-09-10 18:53:02,952 - INFO -    Ctrl+Tab sang tab kế tiếp
+2025-09-10 18:53:04,457 - INFO - ⏳ Chờ 1 giây để trang ổn định...
+2025-09-10 18:53:05,458 - INFO - 🚀 Bắt đầu thực hiện flow cho MCC Account 2
+2025-09-10 18:53:05,458 - INFO - 🚀 Bắt đầu xuất file cho MCC Account 2
+2025-09-10 18:53:05,458 - INFO - ⏳ Chờ trang ổn định...
+2025-09-10 18:53:08,532 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 2_before_export_20250910_185308.png
+2025-09-10 18:53:08,533 - INFO - 🔄 Refresh...
+2025-09-10 18:53:08,533 - INFO - ❌ Không tìm thấy Refresh (template) bằng template
+2025-09-10 18:53:08,534 - INFO - 🖱️ Đang click Refresh button tại (1500, 118)
+2025-09-10 18:53:22,427 - INFO - ✅ Đã click Refresh button
+2025-09-10 18:53:22,507 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 2_after_refresh_click_20250910_185322.png
+2025-09-10 18:53:22,508 - INFO - ⏳ Chờ 1 giây sau Refresh...
+2025-09-10 18:53:23,509 - INFO - ⬇️ Download...
+2025-09-10 18:53:23,509 - INFO - ❌ Không tìm thấy Download (template) bằng template
+2025-09-10 18:53:23,509 - INFO - 🖱️ Đang click Download button tại (1680, 728)
+2025-09-10 18:53:36,985 - INFO - ✅ Đã click Download button
+2025-09-10 18:53:37,070 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 2_after_download_click_20250910_185336.png
+2025-09-10 18:53:37,071 - INFO - ⏳ Chờ combobox hiển thị...
+2025-09-10 18:53:39,072 - INFO - 📄 Chọn định dạng .csv trong combobox...
+2025-09-10 18:53:39,072 - INFO - ❌ Không tìm thấy CSV option (template) bằng template
+2025-09-10 18:53:39,072 - INFO - 🖱️ Đang click Combobox option (.csv) tại (1553, 554)
+2025-09-10 18:53:52,591 - INFO - ✅ Đã click Combobox option (.csv)
+2025-09-10 18:53:52,664 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 2_after_combobox_selection_20250910_185352.png
+2025-09-10 18:53:52,664 - INFO - 🖱️ Click thêm một lần nữa vào vị trí combobox để xác nhận/đóng menu
+2025-09-10 18:53:53,165 - INFO - 🖱️ Đang click Combobox extra click tại (1553, 554)
+2025-09-10 18:54:06,538 - INFO - ✅ Đã click Combobox extra click
+2025-09-10 18:54:06,539 - INFO - ⏳ Chờ 1 giây để download hoàn tất cho MCC Account 2...
+2025-09-10 18:54:07,614 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 2_download_completed_20250910_185407.png
+2025-09-10 18:54:07,615 - INFO - ✅ Hoàn thành download cho MCC Account 2
+2025-09-10 18:54:07,615 - INFO - ⏳ Delay ngắn giữa các tab...
+2025-09-10 18:54:08,785 - INFO - 📂 Xử lý tab 3/3: MCC Account 3
+2025-09-10 18:54:08,786 - INFO -    Ctrl+Tab sang tab kế tiếp
+2025-09-10 18:54:10,291 - INFO - ⏳ Chờ 1 giây để trang ổn định...
+2025-09-10 18:54:11,291 - INFO - 🚀 Bắt đầu thực hiện flow cho MCC Account 3
+2025-09-10 18:54:11,292 - INFO - 🚀 Bắt đầu xuất file cho MCC Account 3
+2025-09-10 18:54:11,292 - INFO - ⏳ Chờ trang ổn định...
+2025-09-10 18:54:14,396 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 3_before_export_20250910_185414.png
+2025-09-10 18:54:14,397 - INFO - 🔄 Refresh...
+2025-09-10 18:54:14,397 - INFO - ❌ Không tìm thấy Refresh (template) bằng template
+2025-09-10 18:54:14,398 - INFO - 🖱️ Đang click Refresh button tại (1500, 118)
+2025-09-10 18:54:28,259 - INFO - ✅ Đã click Refresh button
+2025-09-10 18:54:28,367 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 3_after_refresh_click_20250910_185428.png
+2025-09-10 18:54:28,368 - INFO - ⏳ Chờ 1 giây sau Refresh...
+2025-09-10 18:54:29,369 - INFO - ⬇️ Download...
+2025-09-10 18:54:29,369 - INFO - ❌ Không tìm thấy Download (template) bằng template
+2025-09-10 18:54:29,369 - INFO - 🖱️ Đang click Download button tại (1680, 728)
+2025-09-10 18:54:42,714 - INFO - ✅ Đã click Download button
+2025-09-10 18:54:42,797 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 3_after_download_click_20250910_185442.png
+2025-09-10 18:54:42,798 - INFO - ⏳ Chờ combobox hiển thị...
+2025-09-10 18:54:44,799 - INFO - 📄 Chọn định dạng .csv trong combobox...
+2025-09-10 18:54:44,799 - INFO - ❌ Không tìm thấy CSV option (template) bằng template
+2025-09-10 18:54:44,800 - INFO - 🖱️ Đang click Combobox option (.csv) tại (1553, 554)
+2025-09-10 18:54:58,678 - INFO - ✅ Đã click Combobox option (.csv)
+2025-09-10 18:54:58,765 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 3_after_combobox_selection_20250910_185458.png
+2025-09-10 18:54:58,766 - INFO - 🖱️ Click thêm một lần nữa vào vị trí combobox để xác nhận/đóng menu
+2025-09-10 18:54:59,267 - INFO - 🖱️ Đang click Combobox extra click tại (1553, 554)
+2025-09-10 18:55:12,662 - INFO - ✅ Đã click Combobox extra click
+2025-09-10 18:55:12,662 - INFO - ⏳ Chờ 1 giây để download hoàn tất cho MCC Account 3...
+2025-09-10 18:55:13,750 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 3_download_completed_20250910_185513.png
+2025-09-10 18:55:13,750 - INFO - ✅ Hoàn thành download cho MCC Account 3
+2025-09-10 18:55:13,751 - INFO - ➡️ Đã ở tab cuối cùng trong chu kỳ, Ctrl+Tab thêm 1 lần nữa
+2025-09-10 18:55:15,256 - INFO - ✅ Hoàn thành chu kỳ download
+2025-09-10 18:55:15,257 - INFO - 🔄 Bắt đầu chu kỳ download
+2025-09-10 18:55:15,257 - INFO - 🔍 Debug thông tin tab:
+2025-09-10 18:55:15,257 - INFO -    Số tab trong config: 3
+2025-09-10 18:55:15,257 - INFO -    Tab 0: MCC Account 1
+2025-09-10 18:55:15,257 - INFO -    Tab 1: MCC Account 2
+2025-09-10 18:55:15,258 - INFO -    Tab 2: MCC Account 3
+2025-09-10 18:55:15,258 - INFO - ⏳ Chờ Chrome sẵn sàng...
+2025-09-10 18:55:18,259 - INFO - 📊 Sẽ xử lý 3/3 tab trong chu kỳ này
+2025-09-10 18:55:18,259 - INFO - 📂 Xử lý tab 1/3: MCC Account 1
+2025-09-10 18:55:18,259 - INFO - ⏳ Chờ 1 giây để trang ổn định...
+2025-09-10 18:55:19,261 - INFO - 🚀 Bắt đầu thực hiện flow cho MCC Account 1
+2025-09-10 18:55:19,261 - INFO - 🚀 Bắt đầu xuất file cho MCC Account 1
+2025-09-10 18:55:19,261 - INFO - ⏳ Chờ trang ổn định...
+2025-09-10 18:55:22,360 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 1_before_export_20250910_185522.png
+2025-09-10 18:55:22,361 - INFO - 🔄 Refresh...
+2025-09-10 18:55:22,361 - INFO - ❌ Không tìm thấy Refresh (template) bằng template
+2025-09-10 18:55:22,362 - INFO - 🖱️ Đang click Refresh button tại (1500, 118)
+2025-09-10 18:55:35,852 - INFO - ✅ Đã click Refresh button
+2025-09-10 18:55:35,928 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 1_after_refresh_click_20250910_185535.png
+2025-09-10 18:55:35,929 - INFO - ⏳ Chờ 1 giây sau Refresh...
+2025-09-10 18:55:36,930 - INFO - ⬇️ Download...
+2025-09-10 18:55:36,930 - INFO - ❌ Không tìm thấy Download (template) bằng template
+2025-09-10 18:55:36,931 - INFO - 🖱️ Đang click Download button tại (1680, 728)
+2025-09-10 18:55:50,417 - INFO - ✅ Đã click Download button
+2025-09-10 18:55:50,497 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 1_after_download_click_20250910_185550.png
+2025-09-10 18:55:50,497 - INFO - ⏳ Chờ combobox hiển thị...
+2025-09-10 18:55:52,499 - INFO - 📄 Chọn định dạng .csv trong combobox...
+2025-09-10 18:55:52,500 - INFO - ❌ Không tìm thấy CSV option (template) bằng template
+2025-09-10 18:55:52,500 - INFO - 🖱️ Đang click Combobox option (.csv) tại (1553, 554)
+2025-09-10 18:56:05,827 - INFO - ✅ Đã click Combobox option (.csv)
+2025-09-10 18:56:05,909 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 1_after_combobox_selection_20250910_185605.png
+2025-09-10 18:56:05,910 - INFO - 🖱️ Click thêm một lần nữa vào vị trí combobox để xác nhận/đóng menu
+2025-09-10 18:56:06,411 - INFO - 🖱️ Đang click Combobox extra click tại (1553, 554)
+2025-09-10 18:56:19,793 - INFO - ✅ Đã click Combobox extra click
+2025-09-10 18:56:19,795 - INFO - ⏳ Chờ 1 giây để download hoàn tất cho MCC Account 1...
+2025-09-10 18:56:20,876 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 1_download_completed_20250910_185620.png
+2025-09-10 18:56:20,877 - INFO - ✅ Hoàn thành download cho MCC Account 1
+2025-09-10 18:56:20,877 - INFO - ⏳ Delay ngắn giữa các tab...
+2025-09-10 18:56:22,019 - INFO - 📂 Xử lý tab 2/3: MCC Account 2
+2025-09-10 18:56:22,019 - INFO -    Ctrl+Tab sang tab kế tiếp
+2025-09-10 18:56:23,525 - INFO - ⏳ Chờ 1 giây để trang ổn định...
+2025-09-10 18:56:24,526 - INFO - 🚀 Bắt đầu thực hiện flow cho MCC Account 2
+2025-09-10 18:56:24,527 - INFO - 🚀 Bắt đầu xuất file cho MCC Account 2
+2025-09-10 18:56:24,527 - INFO - ⏳ Chờ trang ổn định...
+2025-09-10 18:56:27,644 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 2_before_export_20250910_185627.png
+2025-09-10 18:56:27,645 - INFO - 🔄 Refresh...
+2025-09-10 18:56:27,646 - INFO - ❌ Không tìm thấy Refresh (template) bằng template
+2025-09-10 18:56:27,646 - INFO - 🖱️ Đang click Refresh button tại (1500, 118)
+2025-09-10 18:56:40,791 - INFO - ⚠️ Đã dừng bởi người dùng

@@ -74,6 +74,11 @@ class GoogleAdsMouseClicker:
                 "description": "Tùy chọn trong combobox"
             }
         },
+            "templates": {
+                "refresh_button": [],
+                "download_button": [],
+                "combobox_option": []
+            },
             "timing": {
                 "export_interval_minutes": 5,
                 "export_interval_seconds": None,
@@ -221,6 +226,41 @@ class GoogleAdsMouseClicker:
         except Exception as e:
             self.logger.warning(f"⚠️ Lỗi chụp screenshot: {e}")
             return None
+
+    def locate_and_click(self, template_keys: List[str], confidence: float = 0.85, description: str = "") -> bool:
+        """Tìm nút bằng template images (UI cũ/mới) và click. Trả về True nếu thành công."""
+        try:
+            templates_cfg = self.config.get("templates", {})
+            paths: List[str] = []
+            for key in template_keys:
+                vals = templates_cfg.get(key, [])
+                if isinstance(vals, list):
+                    paths.extend(vals)
+                elif isinstance(vals, str):
+                    paths.append(vals)
+
+            for path in paths:
+                if not os.path.exists(path):
+                    continue
+                self.logger.info(f"🔎 Tìm {description or template_keys} bằng template: {path}")
+                screen = pyautogui.screenshot()
+                screen_np = cv2.cvtColor(np.array(screen), cv2.COLOR_RGB2BGR)
+                tpl = cv2.imread(path, cv2.IMREAD_COLOR)
+                if tpl is None:
+                    continue
+                res = cv2.matchTemplate(screen_np, tpl, cv2.TM_CCOEFF_NORMED)
+                min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
+                if max_val >= confidence:
+                    h, w = tpl.shape[:2]
+                    center_x = max_loc[0] + w // 2
+                    center_y = max_loc[1] + h // 2
+                    self.logger.info(f"✅ Tìm thấy {description or template_keys} (conf={max_val:.2f}) tại ({center_x},{center_y})")
+                    return self.human_like_click(center_x, center_y, description or ",".join(template_keys))
+            self.logger.info(f"❌ Không tìm thấy {description or template_keys} bằng template")
+            return False
+        except Exception as e:
+            self.logger.error(f"❌ Lỗi locate_and_click: {e}")
+            return False
             
     def export_for_tab(self, tab_index, retry_count=0):
         """Xuất file cho một tab cụ thể theo flow: Refresh → Download → Chọn combobox"""
@@ -235,26 +275,30 @@ class GoogleAdsMouseClicker:
             # Chụp screenshot trước khi bắt đầu
             self.take_screenshot("before_export", tab_name)
 
-            # Bước 1: Refresh
-            try:
-                refresh_pos = self.config["click_positions"]["refresh_button"]
-                self.logger.info("🔄 Click Refresh...")
-                if not self.human_like_click(refresh_pos["x"], refresh_pos["y"], "Refresh button"):
-                    self.logger.warning("⚠️ Không click được Refresh, vẫn tiếp tục Download")
-                else:
-                    self.take_screenshot("after_refresh_click", tab_name)
-                    page_load_wait = self.config["timing"].get("page_load_wait", 1)
-                    if page_load_wait > 0:
-                        self.logger.info(f"⏳ Chờ {page_load_wait} giây sau Refresh...")
-                        time.sleep(page_load_wait)
-            except Exception as _e:
-                self.logger.warning(f"⚠️ Bỏ qua Refresh do lỗi: {_e}")
+            # Bước 1: Refresh (ƯU TIÊN template → fallback tọa độ)
+            self.logger.info("🔄 Refresh...")
+            clicked_refresh = self.locate_and_click(["refresh_button"], confidence=0.8, description="Refresh (template)")
+            if not clicked_refresh:
+                try:
+                    refresh_pos = self.config["click_positions"]["refresh_button"]
+                    clicked_refresh = self.human_like_click(refresh_pos["x"], refresh_pos["y"], "Refresh button")
+                except Exception as _e:
+                    self.logger.warning(f"⚠️ Bỏ qua Refresh do lỗi: {_e}")
+            if clicked_refresh:
+                self.take_screenshot("after_refresh_click", tab_name)
+                page_load_wait = self.config["timing"].get("page_load_wait", 1)
+                if page_load_wait > 0:
+                    self.logger.info(f"⏳ Chờ {page_load_wait} giây sau Refresh...")
+                    time.sleep(page_load_wait)
             
-            # Bước 2: Click nút Download
-            download_pos = self.config["click_positions"]["download_button"]
-            if not self.human_like_click(download_pos["x"], download_pos["y"], "Download button"):
-                self.logger.error(f"❌ Không thể click nút Download cho {tab_name}")
-                return False
+            # Bước 2: Click nút Download (ƯU TIÊN template → fallback tọa độ)
+            self.logger.info("⬇️ Download...")
+            clicked_download = self.locate_and_click(["download_button"], confidence=0.8, description="Download (template)")
+            if not clicked_download:
+                download_pos = self.config["click_positions"]["download_button"]
+                if not self.human_like_click(download_pos["x"], download_pos["y"], "Download button"):
+                    self.logger.error(f"❌ Không thể click nút Download cho {tab_name}")
+                    return False
                 
             # Chụp screenshot sau khi click Download
             self.take_screenshot("after_download_click", tab_name)
@@ -263,11 +307,14 @@ class GoogleAdsMouseClicker:
             self.logger.info("⏳ Chờ combobox hiển thị...")
             time.sleep(2)
             
-            # Bước 3: Chọn tùy chọn trong combobox
-            combobox_pos = self.config["click_positions"]["combobox_option"]
-            if not self.human_like_click(combobox_pos["x"], combobox_pos["y"], "Combobox option"):
-                self.logger.error(f"❌ Không thể chọn tùy chọn trong combobox cho {tab_name}")
-                return False
+            # Bước 3: Chọn tùy chọn trong combobox (.csv) (ƯU TIÊN template → fallback tọa độ)
+            self.logger.info("📄 Chọn định dạng .csv trong combobox...")
+            clicked_csv = self.locate_and_click(["combobox_option"], confidence=0.8, description="CSV option (template)")
+            if not clicked_csv:
+                combobox_pos = self.config["click_positions"]["combobox_option"]
+                if not self.human_like_click(combobox_pos["x"], combobox_pos["y"], "Combobox option (.csv)"):
+                    self.logger.error(f"❌ Không thể chọn tùy chọn trong combobox cho {tab_name}")
+                    return False
                 
             # Chụp screenshot sau khi chọn combobox
             self.take_screenshot("after_combobox_selection", tab_name)
@@ -276,7 +323,11 @@ class GoogleAdsMouseClicker:
             try:
                 self.logger.info("🖱️ Click thêm một lần nữa vào vị trí combobox để xác nhận/đóng menu")
                 time.sleep(0.5)
-                self.human_like_click(combobox_pos["x"], combobox_pos["y"], "Combobox extra click")
+                if clicked_csv:
+                    # Nếu đã click bằng template, click lại cùng vị trí bằng chụp màn hình lần nữa
+                    self.locate_and_click(["combobox_option"], confidence=0.8, description="CSV option (extra)")
+                else:
+                    self.human_like_click(combobox_pos["x"], combobox_pos["y"], "Combobox extra click")
             except Exception as _e:
                 self.logger.warning(f"⚠️ Không thể click thêm lần nữa vào combobox: {_e}")
             
