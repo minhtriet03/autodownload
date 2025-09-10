@@ -329,25 +329,32 @@ class GoogleAdsMouseClicker:
             if not clicked_csv:
                 self.logger.error(f"❌ Không tìm thấy mục .csv trong combobox bằng hình ảnh cho {tab_name}")
                 return False
-                
-            # Chụp screenshot sau khi chọn combobox
-            self.take_screenshot("after_combobox_selection", tab_name)
 
-            # Theo yêu cầu: click thêm 1 lần nữa vào vị trí combobox sau khi đã chọn
-            try:
-                self.logger.info("🖱️ Click thêm 1 lần nữa vào .csv để xác nhận/đóng menu (image only)")
-                time.sleep(0.5)
-                self.locate_and_click(["combobox_option"], confidence=0.8, description="CSV option (extra)")
-            except Exception as _e:
-                self.logger.warning(f"⚠️ Không thể click thêm lần nữa vào combobox: {_e}")
+            # Chỉ chụp screenshot 1 lần cho mỗi tab sau khi chọn combobox
+            screenshot_path = self.take_screenshot("after_combobox_selection", tab_name)
+
+            # Các bước sau nếu cần dùng lại ảnh màn hình thì dùng screenshot_path
+            # Ví dụ: lưu tên file vào self.results hoặc log lại
+            self.logger.info(f"🖼️ Đã lưu screenshot cho tab này: {screenshot_path}")
+
+            # Click thêm 1 lần nữa vào option combobox để xác nhận/đóng menu
+            self.logger.info("🖱️ Click thêm 1 lần nữa vào .csv để xác nhận/đóng menu (image only)")
+            time.sleep(0.5)
+            self.locate_and_click(["combobox_option"], confidence=0.8, description="CSV option (extra)")
+
+            # Click chuột giữa màn hình để đảm bảo đóng menu trước khi chuyển tab
             
+            center_x, center_y = 1429, 614
+            self.logger.info(f"🖱️ Click giữa màn hình tại ({center_x}, {center_y}) để đóng menu trước khi chuyển tab")
+            self.human_like_click(center_x, center_y, "Click giữa màn hình")
+
             # Chờ quá trình download hoàn tất
             export_wait = self.config["timing"]["export_process_wait"]
             self.logger.info(f"⏳ Chờ {export_wait} giây để download hoàn tất cho {tab_name}...")
             time.sleep(export_wait)
-            
-            # Chụp screenshot cuối cùng
-            self.take_screenshot("download_completed", tab_name)
+
+            # Không chụp screenshot nữa, chỉ dùng lại ảnh đã chụp
+            self.logger.info(f"🖼️ Ảnh duy nhất cho tab này: {screenshot_path}")
             
             self.logger.info(f"✅ Hoàn thành download cho {tab_name}")
             return True
