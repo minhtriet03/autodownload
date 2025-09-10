@@ -275,30 +275,24 @@ class GoogleAdsMouseClicker:
             # Chụp screenshot trước khi bắt đầu
             self.take_screenshot("before_export", tab_name)
 
-            # Bước 1: Refresh (ƯU TIÊN template → fallback tọa độ)
-            self.logger.info("🔄 Refresh...")
+            # Bước 1: Refresh (CHỈ dùng template)
+            self.logger.info("🔄 Refresh (image only)...")
             clicked_refresh = self.locate_and_click(["refresh_button"], confidence=0.8, description="Refresh (template)")
             if not clicked_refresh:
-                try:
-                    refresh_pos = self.config["click_positions"]["refresh_button"]
-                    clicked_refresh = self.human_like_click(refresh_pos["x"], refresh_pos["y"], "Refresh button")
-                except Exception as _e:
-                    self.logger.warning(f"⚠️ Bỏ qua Refresh do lỗi: {_e}")
-            if clicked_refresh:
-                self.take_screenshot("after_refresh_click", tab_name)
-                page_load_wait = self.config["timing"].get("page_load_wait", 1)
-                if page_load_wait > 0:
-                    self.logger.info(f"⏳ Chờ {page_load_wait} giây sau Refresh...")
-                    time.sleep(page_load_wait)
+                self.logger.error("❌ Không tìm thấy nút Refresh bằng hình ảnh")
+                return False
+            self.take_screenshot("after_refresh_click", tab_name)
+            page_load_wait = self.config["timing"].get("page_load_wait", 1)
+            if page_load_wait > 0:
+                self.logger.info(f"⏳ Chờ {page_load_wait} giây sau Refresh...")
+                time.sleep(page_load_wait)
             
-            # Bước 2: Click nút Download (ƯU TIÊN template → fallback tọa độ)
-            self.logger.info("⬇️ Download...")
+            # Bước 2: Click nút Download (CHỈ dùng template)
+            self.logger.info("⬇️ Download (image only)...")
             clicked_download = self.locate_and_click(["download_button"], confidence=0.8, description="Download (template)")
             if not clicked_download:
-                download_pos = self.config["click_positions"]["download_button"]
-                if not self.human_like_click(download_pos["x"], download_pos["y"], "Download button"):
-                    self.logger.error(f"❌ Không thể click nút Download cho {tab_name}")
-                    return False
+                self.logger.error(f"❌ Không tìm thấy nút Download bằng hình ảnh cho {tab_name}")
+                return False
                 
             # Chụp screenshot sau khi click Download
             self.take_screenshot("after_download_click", tab_name)
@@ -307,27 +301,21 @@ class GoogleAdsMouseClicker:
             self.logger.info("⏳ Chờ combobox hiển thị...")
             time.sleep(2)
             
-            # Bước 3: Chọn tùy chọn trong combobox (.csv) (ƯU TIÊN template → fallback tọa độ)
-            self.logger.info("📄 Chọn định dạng .csv trong combobox...")
+            # Bước 3: Chọn tùy chọn trong combobox (.csv) (CHỈ dùng template)
+            self.logger.info("📄 Chọn .csv (image only)...")
             clicked_csv = self.locate_and_click(["combobox_option"], confidence=0.8, description="CSV option (template)")
             if not clicked_csv:
-                combobox_pos = self.config["click_positions"]["combobox_option"]
-                if not self.human_like_click(combobox_pos["x"], combobox_pos["y"], "Combobox option (.csv)"):
-                    self.logger.error(f"❌ Không thể chọn tùy chọn trong combobox cho {tab_name}")
-                    return False
+                self.logger.error(f"❌ Không tìm thấy mục .csv trong combobox bằng hình ảnh cho {tab_name}")
+                return False
                 
             # Chụp screenshot sau khi chọn combobox
             self.take_screenshot("after_combobox_selection", tab_name)
 
             # Theo yêu cầu: click thêm 1 lần nữa vào vị trí combobox sau khi đã chọn
             try:
-                self.logger.info("🖱️ Click thêm một lần nữa vào vị trí combobox để xác nhận/đóng menu")
+                self.logger.info("🖱️ Click thêm 1 lần nữa vào .csv để xác nhận/đóng menu (image only)")
                 time.sleep(0.5)
-                if clicked_csv:
-                    # Nếu đã click bằng template, click lại cùng vị trí bằng chụp màn hình lần nữa
-                    self.locate_and_click(["combobox_option"], confidence=0.8, description="CSV option (extra)")
-                else:
-                    self.human_like_click(combobox_pos["x"], combobox_pos["y"], "Combobox extra click")
+                self.locate_and_click(["combobox_option"], confidence=0.8, description="CSV option (extra)")
             except Exception as _e:
                 self.logger.warning(f"⚠️ Không thể click thêm lần nữa vào combobox: {_e}")
             
