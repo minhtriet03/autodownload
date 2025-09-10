@@ -21,6 +21,11 @@
             "description": "Tùy chọn trong combobox"
         }
     },
+    "templates": {
+        "refresh_button": ["templates/refresh_new.png"],
+        "download_button": ["templates/download_new.png"],
+        "combobox_option": ["templates/csv_option.png"]
+    },
     "timing": {
         "export_interval_seconds": 10,
         "export_interval_minutes": 5,

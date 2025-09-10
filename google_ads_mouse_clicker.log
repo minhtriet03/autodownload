@@ -10283,3 +10283,52 @@ NameError: name 'total_tabs' is not defined
 2025-09-10 18:56:27,646 - INFO - ❌ Không tìm thấy Refresh (template) bằng template
 2025-09-10 18:56:27,646 - INFO - 🖱️ Đang click Refresh button tại (1500, 118)
 2025-09-10 18:56:40,791 - INFO - ⚠️ Đã dừng bởi người dùng
+2025-09-10 19:14:09,059 - INFO - ✅ Đã load config từ mouse_clicker_config.json
+2025-09-10 19:14:09,061 - INFO - ✅ Đã load config từ mouse_clicker_config.json
+2025-09-10 19:14:11,481 - INFO - 🚀 Bắt đầu chạy ngầm xuất file
+2025-09-10 19:14:11,481 - INFO - ⏰ Đã lập lịch xuất file mỗi 10 giây
+2025-09-10 19:14:11,481 - INFO - 🔄 Bắt đầu chu kỳ download
+2025-09-10 19:14:11,482 - INFO - 🔍 Debug thông tin tab:
+2025-09-10 19:14:11,482 - INFO -    Số tab trong config: 3
+2025-09-10 19:14:11,482 - INFO -    Tab 0: MCC Account 1
+2025-09-10 19:14:11,482 - INFO -    Tab 1: MCC Account 2
+2025-09-10 19:14:11,482 - INFO -    Tab 2: MCC Account 3
+2025-09-10 19:14:11,483 - INFO - ⏳ Chờ Chrome sẵn sàng...
+2025-09-10 19:14:14,483 - INFO - 📊 Sẽ xử lý 3/3 tab trong chu kỳ này
+2025-09-10 19:14:14,484 - INFO - 📂 Xử lý tab 1/3: MCC Account 1
+2025-09-10 19:14:14,484 - INFO - ⏳ Chờ 1 giây để trang ổn định...
+2025-09-10 19:14:15,485 - INFO - 🚀 Bắt đầu thực hiện flow cho MCC Account 1
+2025-09-10 19:14:15,485 - INFO - 🚀 Bắt đầu xuất file cho MCC Account 1
+2025-09-10 19:14:15,485 - INFO - ⏳ Chờ trang ổn định...
+2025-09-10 19:14:18,599 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 1_before_export_20250910_191418.png
+2025-09-10 19:14:18,599 - INFO - 🔄 Refresh...
+2025-09-10 19:14:18,600 - INFO - 🔎 Tìm Refresh (template) bằng template: templates/refresh_new.png
+2025-09-10 19:14:18,831 - INFO - ✅ Tìm thấy Refresh (template) (conf=1.00) tại (1487,118)
+2025-09-10 19:14:18,831 - INFO - 🖱️ Đang click Refresh (template) tại (1487, 118)
+2025-09-10 19:14:31,906 - INFO - ✅ Đã click Refresh (template)
+2025-09-10 19:14:31,982 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 1_after_refresh_click_20250910_191431.png
+2025-09-10 19:14:31,983 - INFO - ⏳ Chờ 1 giây sau Refresh...
+2025-09-10 19:14:32,984 - INFO - ⬇️ Download...
+2025-09-10 19:14:32,985 - INFO - 🔎 Tìm Download (template) bằng template: templates/download_new.png
+2025-09-10 19:14:33,181 - INFO - ✅ Tìm thấy Download (template) (conf=1.00) tại (1678,726)
+2025-09-10 19:14:33,181 - INFO - 🖱️ Đang click Download (template) tại (1678, 726)
+2025-09-10 19:14:46,506 - INFO - ✅ Đã click Download (template)
+2025-09-10 19:14:46,584 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 1_after_download_click_20250910_191446.png
+2025-09-10 19:14:46,585 - INFO - ⏳ Chờ combobox hiển thị...
+2025-09-10 19:14:48,586 - INFO - 📄 Chọn định dạng .csv trong combobox...
+2025-09-10 19:14:48,587 - INFO - 🔎 Tìm CSV option (template) bằng template: templates/csv_option.png
+2025-09-10 19:14:48,782 - INFO - ✅ Tìm thấy CSV option (template) (conf=0.96) tại (1577,549)
+2025-09-10 19:14:48,782 - INFO - 🖱️ Đang click CSV option (template) tại (1577, 549)
+2025-09-10 19:15:02,018 - INFO - ✅ Đã click CSV option (template)
+2025-09-10 19:15:02,119 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 1_after_combobox_selection_20250910_191502.png
+2025-09-10 19:15:02,120 - INFO - 🖱️ Click thêm một lần nữa vào vị trí combobox để xác nhận/đóng menu
+2025-09-10 19:15:02,621 - INFO - 🔎 Tìm CSV option (extra) bằng template: templates/csv_option.png
+2025-09-10 19:15:02,825 - INFO - ❌ Không tìm thấy CSV option (extra) bằng template
+2025-09-10 19:15:02,826 - INFO - ⏳ Chờ 1 giây để download hoàn tất cho MCC Account 1...
+2025-09-10 19:15:03,898 - INFO - 📸 Đã chụp screenshot: screenshots/MCC Account 1_download_completed_20250910_191503.png
+2025-09-10 19:15:03,899 - INFO - ✅ Hoàn thành download cho MCC Account 1
+2025-09-10 19:15:03,900 - INFO - ⏳ Delay ngắn giữa các tab...
+2025-09-10 19:15:04,899 - INFO - 📂 Xử lý tab 2/3: MCC Account 2
+2025-09-10 19:15:04,899 - INFO -    Ctrl+Tab sang tab kế tiếp
+2025-09-10 19:15:06,404 - INFO - ⏳ Chờ 1 giây để trang ổn định...
+2025-09-10 19:15:06,497 - INFO - ⚠️ Đã dừng bởi người dùng
